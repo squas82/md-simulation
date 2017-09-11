@@ -6,6 +6,12 @@ import java.util.Map;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 
+/**
+ * Network Container Class implementing methods for network creation 
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class NetworkContainer {
 
 	private static NetworkContainer instance = null;

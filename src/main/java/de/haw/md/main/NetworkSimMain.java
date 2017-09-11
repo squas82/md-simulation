@@ -12,6 +12,13 @@ import de.haw.md.akka.main.NetworkNode;
 import de.haw.md.helper.StaticValues;
 import scala.concurrent.duration.Duration;
 
+
+/**
+ * Main Class for the network simulation without GUI
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class NetworkSimMain {
 
 	private static String CHANNEL = "NetworkTest";

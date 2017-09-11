@@ -6,9 +6,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import de.haw.md.akka.main.Route;
+import de.haw.md.helper.Route;
 import de.haw.md.helper.StaticValues;
 
+/**
+ * Model for Route Solicitation Response Messages extending MsgModel
+ * 
+ * @author Sascha Waltz
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "route", "hops" })
 public class RouteSolicitationResponseMsgModel extends MsgModel implements Cloneable {

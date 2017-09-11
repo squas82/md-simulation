@@ -21,8 +21,17 @@ import de.haw.md.akka.msg.RouteSolicitationMsgModel;
 import de.haw.md.akka.msg.RouteSolicitationResponseMsgModel;
 import de.haw.md.helper.MDHelper;
 import de.haw.md.helper.RecievedPackages;
+import de.haw.md.helper.Route;
 import de.haw.md.helper.StaticValues;
 
+
+/**
+ * Class for Node creation, implementing Network Node specific methods
+ * implements a simplified Dynamic Source Routing algorithm
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class NetworkNode extends UntypedActor {
 
 	private String nodeID;
@@ -71,8 +80,8 @@ public class NetworkNode extends UntypedActor {
 	}
 
 	/**
-	 * Erh�lt alle Nachrichten und ordnet sie den Methoden zu damit diese
-	 * verarbeitet weden k�nnen.
+	 * Deligates all messages to their designated methods
+	 * checks if the target node is active
 	 * 
 	 * @see akka.actor.UntypedActor#onReceive(java.lang.Object)
 	 */
@@ -162,11 +171,6 @@ public class NetworkNode extends UntypedActor {
 		}
 	}
 
-	/**
-	 * Bearbeitet den Paketversand
-	 * 
-	 * @param networkMsgModel
-	 */
 	private void handleNetworkMsg(NetworkMsgModel networkMsgModel) {
 		if (nodeID.compareToIgnoreCase(networkMsgModel.getDst()) == 0 && nodeID.compareToIgnoreCase(networkMsgModel.getSrc()) == 0) {
 			if (!proofRecieved(networkMsgModel.getId())) {
@@ -207,12 +211,6 @@ public class NetworkNode extends UntypedActor {
 		}
 	}
 
-	/**
-	 * Bearbeitet Routen-Anfragen
-	 * 
-	 * @param solicitationMsgModel
-	 * @throws CloneNotSupportedException
-	 */
 	private void handleRouteSoli(RouteSolicitationMsgModel solicitationMsgModel) throws CloneNotSupportedException {
 		if (solicitationMsgModel.getSrc().compareToIgnoreCase(nodeID) == 0) {
 			if (!proofSolificationRequests(solicitationMsgModel.getId())) {
@@ -259,11 +257,6 @@ public class NetworkNode extends UntypedActor {
 		}
 	}
 
-	/**
-	 * Bearbeitet die Antworten auf eine Routen-Anfrage
-	 * 
-	 * @param routeSolicitationResponseMsgModel
-	 */
 	private void handleRouteSoliResponse(RouteSolicitationResponseMsgModel routeSolicitationResponseMsgModel) {
 		if (routeSolicitationResponseMsgModel.getSrc().compareToIgnoreCase(nodeID) == 0) {
 			MDHelper.getInstance().addSolicitationResponseMsgModel();
@@ -327,25 +320,12 @@ public class NetworkNode extends UntypedActor {
 		return false;
 	}
 	
-	/**
-	 * �berpr�ft mithilfe der ID ob eine Routenanfrage schon bearbeitet wurde
-	 * 
-	 * @param id
-	 * @return
-	 */
 	private boolean proofSolificationRequests(String id) {
 		for (String solificationRequest : solificationRequests)
 			if (solificationRequest.compareToIgnoreCase(id) == 0)
 				return true;
 		return false;
 	}
-
-	/**
-	 * Verarbeitet nicht versendete Pakete, welche Aufgrund einer fehlenden
-	 * Route nicht versand wurden
-	 * 
-	 * @param om
-	 */
 	private void proofQueue() {
 		List<MsgModel> queueList = new ArrayList<>();
 		try {

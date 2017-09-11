@@ -9,6 +9,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.haw.md.helper.StaticValues;
 
+/**
+ * Model for Response Messages extending MsgModel
+ * 
+ * @author Sascha Waltz
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "originalId", "recieved" })
 public class NetworkMsgResponseModel extends MsgModel{

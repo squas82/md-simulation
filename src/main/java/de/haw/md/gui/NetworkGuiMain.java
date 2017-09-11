@@ -39,6 +39,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import scala.concurrent.duration.Duration;
 
+
+/** 
+ * Implemented Network GUI in JavaFX containing Overview.fxml
+ * @author swa
+ *
+ */
 public class NetworkGuiMain extends Application {
 
 	private static String CHANNEL = "NetworkTest";
@@ -147,6 +153,10 @@ public class NetworkGuiMain extends Application {
 			}
 		});
 		
+		/*
+		 * Animator contruct from JavaFX to refresh all elements in a JavaFX model
+		 * tells the system to send a "Tick"
+		 */
 		animation = new Timeline();
 		animation.getKeyFrames()
 				.add(new KeyFrame(javafx.util.Duration.millis(SEQUENCE_DURATION), new EventHandler<ActionEvent>() {

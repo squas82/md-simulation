@@ -4,8 +4,14 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.haw.md.akka.msg.MsgModel;
 
+/** 
+ * Helper Class for Network Messages and Counter
+ * Singleton pattern
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class MDHelper {
 
 	private static MDHelper instance = null;
@@ -27,21 +33,6 @@ public class MDHelper {
 			instance = new MDHelper();
 		}
 		return instance;
-	}
-
-	public void addMsgToList(MsgModel msg) {
-		// if (msg instanceof NetworkMsgModel) {
-		// networkMsgModelsList++;
-		// }
-		// if (msg instanceof NetworkMsgResponseModel) {
-		// networkMsgResponseModelsList++;
-		// }
-		// if (msg instanceof RouteSolicitationMsgModel) {
-		// solicitationMsgModelsList++;
-		// }
-		// if (msg instanceof RouteSolicitationResponseMsgModel) {
-		// solicitationResponseMsgModelsList++;
-		// }
 	}
 
 	public BigDecimal getNetworkMsgModelsList() {

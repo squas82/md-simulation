@@ -2,6 +2,14 @@ package de.haw.md.akka.main;
 
 import akka.actor.ActorSystem;
 
+
+/**
+ * Container for the Actor System
+ * Singelton pattern, only one instance can exist
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class ActorSystemContainer {
 
 	private ActorSystem sys;

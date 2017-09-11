@@ -9,6 +9,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.haw.md.helper.StaticValues;
 
+
+/**
+ * Model for Network Messages extending MsgModel Class
+ * 
+ * @author Sascha Waltz
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "data"})
 public class NetworkMsgModel extends MsgModel{

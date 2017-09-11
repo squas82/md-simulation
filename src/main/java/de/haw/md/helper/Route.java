@@ -1,7 +1,14 @@
-package de.haw.md.akka.main;
+package de.haw.md.helper;
 
 import java.util.List;
 
+
+/**
+ * Route Class containing significant informations about network routes
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class Route implements Cloneable{
 
 	private String src;

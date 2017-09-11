@@ -7,6 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+/**
+ * Activation/Deactivation Message Model for Network Nodes, containing ID and active status
+ * 
+ * @author Sascha Waltz
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "nodeId", "active" })
 public class ActorController {

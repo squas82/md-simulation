@@ -4,6 +4,13 @@ import java.time.LocalDateTime;
 
 import de.haw.md.akka.msg.MsgModel;
 
+
+/**
+ * Managing received messages including sending attempts
+ * 
+ * @author Sascha Waltz
+ *
+ */
 public class RecievedPackages {
 	
 	private MsgModel msgModel;

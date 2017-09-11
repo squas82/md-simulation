@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+
+/**
+ * Model for general messages
+ * 
+ * @author Sascha Waltz
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "src", "originalSrc", "dst" })
 public class MsgModel {
